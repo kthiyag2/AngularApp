@@ -1,0 +1,89 @@
+<div class="d-md-flex h-md-100 align-items-center">
+  <div class="col-md-6 p-0 h-md-100 migratearea " >
+          <div class="text-danger"></div>
+          <div asp-validation-summary="ModelOnly" class="text-info"></div>
+          <div class="form-group">
+                  <label for="workDir">Local Workspace</label>
+                  <input class="form-control" asp-for="" >
+                  <span asp-validation-for="WorkDir" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+                  <label for="sourcePath">Source Repository Url</label>
+                  <input class="form-control" asp-for="" >
+                  <span asp-validation-for="GitPath" class="text-danger"></span>
+
+          </div>
+          <div class="form-group">
+                  <label for="branchName">Branch Name</label>
+                  <input class="form-control" asp-for="" >
+          </div>
+          <div class="form-group">
+              <button class="btn btn-primary" asp-page-handler="SourceCode">GetSourceCode</button>
+          </div>
+
+          <div class="form-group">
+                  <label for="targetServer">Target Server</label>
+
+                  <select name="Servers" id="server" data-val="true">
+                      <option value="0">PickOne</option>
+                      <option value="1">Tomcat</option>
+                      <option value="2">Wildfly</option>
+                  </select>
+                  <span asp-validation-for="" class="text-danger"></span>
+          </div>
+          <div class="form-group">
+              <fieldset>
+              <label for="targetServer">Application Folder</label>
+              <input class="form-control" asp-for="">
+              </fieldset>
+          </div>
+          <div class="form-group">
+              <fieldset>
+
+                  <button class="btn btn-primary" name="Package" asp-page-handler="Package" >GetPackage</button>
+
+
+                  <button class="btn btn-primary" name="serverDeployment" asp-page-handler="ServerDeployment" >Deploy to Server</button>
+                  <button class="btn btn-primary" name="healtheck" asp-page-handler="Healtheck" >Health Check</button>
+              </fieldset>
+
+          </div>
+  </div>
+
+  <!-- Second Half    -->
+  <div class="col-md-6 p-0 h-md-100 logarea ml-md-4">
+          <div class="form-group">
+              <fieldset>
+                  <label for="logsMigration">Migration Logs</label>
+              </fieldset>
+          </div>
+          <div class="form-group">
+              <fieldset>
+                  <label for="supportedHead">Tomcat Supported Dependencies</label>
+                  <ul>
+                      <li>Serlvet</li>
+                      <li>Annotation</li>
+                      <li>Springboot</li>
+                  </ul>
+              </fieldset>
+          </div>
+          <div class="form-group">
+              <fieldset>
+                  <label for="supportedInApp">Application Dependencies</label>
+                  <ul id="appdepend" name="appdepend"></ul>
+              </fieldset>
+          </div>
+          <div class="form-group">
+              <fieldset>
+                  <label for="unSupportedInApp">Un Supported Dependencies</label>
+                  <ul id="supporteddist" name="supporteddist"></ul>
+              </fieldset>
+          </div>
+          <div class="  form-group">
+              <fieldset>
+                  <label for="result"></label>
+              </fieldset>
+          </div>
+  </div>
+<!--</div>-->
+</div>
